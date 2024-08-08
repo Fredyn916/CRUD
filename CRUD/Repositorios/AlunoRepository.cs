@@ -20,17 +20,29 @@ namespace CRUD.Repositorios
         {
             bd.Alunos.Add(aluno);
         }
+
         public void Remover(Aluno aluno)
         {
             bd.Alunos.Remove(aluno);
         }
+
         public void Editar()
         {
 
         }
+
         public List<Aluno> Listar()
         {
             return bd.Alunos.ToList();
+        }
+
+        public Aluno BuscarAlunoPorId(int id)
+        {
+            foreach (Aluno x in Listar())
+            {
+                if (x.Id == id) return x;
+            }
+            return null;
         }
     }
 }

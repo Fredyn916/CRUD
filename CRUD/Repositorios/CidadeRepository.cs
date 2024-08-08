@@ -20,17 +20,29 @@ namespace CRUD.Repositorios
         {
             bd.Cidades.Add(cidade);
         }
+
         public void Remover(Cidade cidade)
         {
             bd.Cidades.Remove(cidade);
         }
+
         public void Editar()
         {
 
         }
+
         public List<Cidade> Listar()
         {
             return bd.Cidades.ToList();
+        }
+
+        public Cidade BuscarCidadePorId(int id)
+        {
+            foreach (Cidade x in Listar())
+            {
+                if (x.Id == id) return x;
+            }
+            return null;
         }
     }
 }

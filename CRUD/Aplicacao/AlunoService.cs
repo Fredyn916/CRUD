@@ -33,5 +33,9 @@ namespace CRUD.Aplicacao
         {
             return repository.Listar();
         }
+        public Aluno BuscarAlunoPorId(int id)
+        {
+            return repository.BuscarAlunoPorId(id);
+        }
     }
 }

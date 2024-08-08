@@ -12,6 +12,7 @@ namespace CRUD
         public List<Time> Times { get; set; }
         public List<Aluno> Alunos { get; set; }
         public List<Cidade> Cidades { get; set; }
+
         public SimuladorBD()
         {
             Times = new List<Time>();

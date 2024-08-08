@@ -20,17 +20,29 @@ namespace CRUD.Repositorios
         {
             bd.Times.Add(time);
         }
+
         public void Remover(Time time)
         {
             bd.Times.Remove(time);
         }
+
         public void Editar()
         {
 
         }
+
         public List<Time> Listar()
         {
             return bd.Times.ToList();
+        }
+
+        public Time BuscarTimePorId(int id)
+        {
+            foreach (Time x in Listar())
+            {
+                if (x.Id == id) return x;
+            }
+            return null;
         }
     }
 }
