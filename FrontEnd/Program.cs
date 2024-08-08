@@ -1,4 +1,4 @@
 ﻿using CRUD;
 using CRUD.Aplicacao;
 
-SimuladorBD context = new SimuladorBD();
+var context = new SimuladorBD();

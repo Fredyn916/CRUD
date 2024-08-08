@@ -8,6 +8,7 @@ namespace CRUD.Entidades
 {
     public class Time
     {
+        public int Id { get; set; }
         public string Nome { get; set; }
         public int AnoCriacao { get; set; }
     }
