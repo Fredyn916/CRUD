@@ -24,6 +24,11 @@ namespace CRUD.Aplicacao
             repository.Adicionar(time);
         }
 
+        public void Editar(int id, Time timeEdit)
+        {
+            repository.Editar(id, timeEdit);
+        }
+
         public void Remover(Time time)
         {
             repository.Remover(time);

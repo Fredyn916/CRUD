@@ -26,9 +26,12 @@ namespace CRUD.Repositorios
             bd.Cidades.Remove(cidade);
         }
 
-        public void Editar()
+        public void Editar(int id, Cidade editCidade)
         {
+            Cidade cidadeDoBancoDados = BuscarCidadePorId(id);
 
+            cidadeDoBancoDados.Nome = editCidade.Nome;
+            cidadeDoBancoDados.NumHabitatntes = editCidade.NumHabitatntes;
         }
 
         public List<Cidade> Listar()

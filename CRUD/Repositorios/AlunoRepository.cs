@@ -26,9 +26,13 @@ namespace CRUD.Repositorios
             bd.Alunos.Remove(aluno);
         }
 
-        public void Editar()
+        public void Editar(int id, Aluno editAluno)
         {
+            Aluno alunoDoBancoDados = BuscarAlunoPorId(id);
 
+            alunoDoBancoDados.Nome = editAluno.Nome;
+            alunoDoBancoDados.Idade = editAluno.Idade;
+            alunoDoBancoDados.Peso = editAluno.Peso;
         }
 
         public List<Aluno> Listar()
