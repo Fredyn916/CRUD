@@ -38,7 +38,7 @@ namespace APICRUD.Controllers
         [HttpDelete("RemoverTime")] // Rota (EndPoint)
         public void RemoverTime(int id)
         {
-            _service.Remover(_service.BuscarTimePorId(id));
+            _service.Remover(id);
         }
     }
 }
