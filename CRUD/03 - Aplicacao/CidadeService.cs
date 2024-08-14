@@ -39,7 +39,7 @@ namespace CRUD.Aplicacao
             return repository.Listar();
         }
 
-        public Cidade BuscarAlunoPorId(int id)
+        public Cidade BuscarCidadePorId(int id)
         {
             return repository.BuscarCidadePorId(id);
         }
