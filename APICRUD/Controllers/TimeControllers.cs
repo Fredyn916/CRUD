@@ -28,5 +28,17 @@ namespace APICRUD.Controllers
         {
             return _service.Listar();
         }
+
+        [HttpPut("EditarTime")]
+        public void EditarTime(int id, Time time)
+        {
+            _service.Editar(id, time);
+        }
+
+        [HttpDelete("RemoverTime")]
+        public void RemoverTime(int id)
+        {
+            _service.Remover(_service.BuscarTimePorId(id));
+        }
     }
 }
