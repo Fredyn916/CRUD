@@ -29,6 +29,12 @@ namespace APICRUD.Controllers
             return _service.Listar();
         }
 
+        [HttpGet("BuscarTimePorId")] // Rota (EndPoint)
+        public Time BuscarTimePorId(int id)
+        {
+            return _service.BuscarTimePorId(id);
+        }
+
         [HttpPut("EditarTime")] // Rota (EndPoint)
         public void EditarTime(int id, Time time)
         {
