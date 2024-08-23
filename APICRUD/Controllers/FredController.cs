@@ -1,4 +1,6 @@
-﻿using CRUD.Entidades;
+﻿using CRUD;
+using CRUD.Aplicacao;
+using CRUD.Entidades;
 using Microsoft.AspNetCore.Mvc;
 
 namespace APICRUD.Controllers
@@ -8,7 +10,7 @@ namespace APICRUD.Controllers
     public class FredController : ControllerBase
     {
         [HttpPost("EnviarEmail")] // Rota (EndPoint)
-        public void EnviarEmail(string email)
+        public void EnviarEmail(int id, string email)
         {}
 
         [HttpPut("EditarRegistro")] // Rota (EndPoint)
