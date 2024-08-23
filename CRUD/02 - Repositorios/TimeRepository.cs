@@ -9,6 +9,9 @@ namespace CRUD.Repositorios
 {
     public class TimeRepository
     {
+        private const string ConnectionString = "Data Source=CRUD.db"; // ConnectionString (Parâmetros necessários para criar um banco de dados)
+        // Caso não exista o banco de dados, a var connection cria um database automaticamente
+
         public SimuladorBD bd { get; set; }
 
         public TimeRepository(SimuladorBD bdPreenchido)
