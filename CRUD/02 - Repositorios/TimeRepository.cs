@@ -67,8 +67,9 @@ namespace CRUD.Repositorios
 
                 using (var command = new SQLiteCommand(commandUptade, connection))
                 {
+                    command.Parameters.AddWithValue("@Id", id); // Substitui a chave no comando para a variável do parâmetro
                     command.Parameters.AddWithValue("@Nome", editTime.Nome);
-                    command.Parameters.AddWithValue("@Preco", editTime.AnoCriacao);
+                    command.Parameters.AddWithValue("@AnoCriacao", editTime.AnoCriacao);
                     command.ExecuteNonQuery();
                 }
             }
