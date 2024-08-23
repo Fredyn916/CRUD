@@ -10,13 +10,11 @@ namespace CRUD.Aplicacao
 {
     public class TimeService
     {
-        public SimuladorBD bd { get; set; }
         public TimeRepository repository { get; set; }
 
         public TimeService(SimuladorBD bdPreenchido)
         {
-            bd = bdPreenchido;
-            repository = new TimeRepository(bd);
+            repository = new TimeRepository();
         }
 
         public void Adicionar(Time time)
@@ -31,8 +29,7 @@ namespace CRUD.Aplicacao
 
         public void Remover(int id)
         {
-            Time time = BuscarTimePorId(id);
-            repository.Remover(time);
+            repository.Remover(id);
         }
 
         public List<Time> Listar()
