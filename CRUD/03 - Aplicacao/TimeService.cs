@@ -12,7 +12,7 @@ namespace CRUD.Aplicacao
     {
         public TimeRepository repository { get; set; }
 
-        public TimeService(SimuladorBD bdPreenchido)
+        public TimeService()
         {
             repository = new TimeRepository();
         }

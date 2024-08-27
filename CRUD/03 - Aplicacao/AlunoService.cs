@@ -10,13 +10,11 @@ namespace CRUD.Aplicacao
 {
     public class AlunoService
     {
-        public SimuladorBD bd { get; set; }
         public AlunoRepository repository { get; set; }
 
-        public AlunoService(SimuladorBD bdPreenchido)
+        public AlunoService()
         {
-            bd = bdPreenchido;
-            repository = new AlunoRepository(bd);
+            repository = new AlunoRepository();
         }
 
         public void Adicionar(Aluno aluno)
@@ -24,9 +22,9 @@ namespace CRUD.Aplicacao
             repository.Adicionar(aluno);
         }
 
-        public void Remover(Aluno aluno)
+        public void Remover(int id)
         {
-            repository.Remover(aluno);
+            repository.Remover(id);
         }
 
         public void Editar(int id, Aluno alunoEdit)

@@ -9,13 +9,11 @@ namespace APICRUD.Controllers
     [Route("[controller]")] // DataNotation
     public class AlunoController : ControllerBase
     {
-        private SimuladorBD _bd;
         private AlunoService _service;
 
         public AlunoController(SimuladorBD bdSistema)
         {
-            _bd = bdSistema;
-            _service = new AlunoService(_bd);
+            _service = new AlunoService();
         }
 
         [HttpPost("AdicionarAluno")] // Rota (EndPoint)
@@ -30,6 +28,12 @@ namespace APICRUD.Controllers
             return _service.Listar();
         }
 
+        [HttpGet("BuscarAlunoPorId")] // Rota (EndPoint)
+        public Aluno BuscarAlunoPorId(int id)
+        {
+            return _service.BuscarAlunoPorId(id);
+        }
+
         [HttpPut("EditarAluno")] // Rota (EndPoint)
         public void EditarAluno(int id, Aluno aluno)
         {
@@ -39,7 +43,7 @@ namespace APICRUD.Controllers
         [HttpDelete("RemoverAluno")] // Rota (EndPoint)
         public void RemoverAluno(int id)
         {
-            _service.Remover(_service.BuscarAlunoPorId(id));
+            _service.Remover(id);
         }
     }
 }

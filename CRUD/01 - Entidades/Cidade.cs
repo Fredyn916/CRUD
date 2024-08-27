@@ -10,6 +10,6 @@ namespace CRUD.Entidades
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-        public int NumHabitatntes { get; set; }
+        public int NumHabitantes { get; set; }
     }
 }

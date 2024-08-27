@@ -9,12 +9,10 @@ namespace APICRUD.Controllers
     [Route("[controller]")] // DataNotation
     public class TimeController : ControllerBase
     {
-        private SimuladorBD _bd;
         private TimeService _service;
-        public TimeController(SimuladorBD bdSistema)
+        public TimeController()
         {
-            _bd = bdSistema;
-            _service = new TimeService(_bd);
+            _service = new TimeService();
         }
 
         [HttpPost("AdicionarTime")] // Rota (EndPoint)

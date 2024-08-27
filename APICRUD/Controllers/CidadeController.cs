@@ -9,13 +9,11 @@ namespace APICRUD.Controllers
     [Route("[controller]")] // DataNotation
     public class CidadeController : ControllerBase
     {
-        private SimuladorBD _bd;
         private CidadeService _service;
 
         public CidadeController(SimuladorBD bdSistema)
         {
-            _bd = bdSistema;
-            _service = new CidadeService(_bd);
+            _service = new CidadeService();
         }
 
         [HttpPost("AdicionarCidade")] // Rota (EndPoint)
@@ -30,6 +28,12 @@ namespace APICRUD.Controllers
             return _service.Listar();
         }
 
+        [HttpGet("BuscarCidadePorId")] // Rota (EndPoint)
+        public Cidade BuscarCidadePorId(int id)
+        {
+            return _service.BuscarCidadePorId(id);
+        }
+
         [HttpPut("EditarCidade")] // Rota (EndPoint)
         public void EditarCidade(int id, Cidade cidade)
         {
@@ -39,7 +43,7 @@ namespace APICRUD.Controllers
         [HttpDelete("RemoverCidade")] // Rota (EndPoint)
         public void RemoverCidade(int id)
         {
-            _service.Remover(_service.BuscarCidadePorId(id));
+            _service.Remover(id);
         }
     }
 }

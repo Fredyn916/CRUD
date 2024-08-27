@@ -23,7 +23,22 @@ namespace CRUD._02___Repositorios.Data
                     Id INTEGER PRIMARY KEY AUTOINCREMENT,
                     Nome TEXT NOT NULL,
                     AnoCriacao INTEGER NOT NULL
-                );"; // Criando a tabela no banco se não existir
+                );
+
+                CREATE TABLE IF NOT EXISTS Cidades(
+                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    Nome TEXT NOT NULL,
+                    NumHabitantes INTEGER NOT NULL
+                );
+
+                CREATE TABLE IF NOT EXISTS Alunos(
+                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    Nome TEXT NOT NULL,
+                    Idade INTEGER NOT NULL,
+                    Peso DECIMAL NOT NULL
+                );";
+                
+                // Criando a tabela no banco se não existir
 
                 using (var command = new SQLiteCommand(commandCREATE, connection))
                 {

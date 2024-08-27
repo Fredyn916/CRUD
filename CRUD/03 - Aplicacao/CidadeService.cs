@@ -10,13 +10,11 @@ namespace CRUD.Aplicacao
 {
     public class CidadeService
     {
-        public SimuladorBD bd { get; set; }
         public CidadeRepository repository { get; set; }
 
-        public CidadeService(SimuladorBD bdPreenchido)
+        public CidadeService()
         {
-            bd = bdPreenchido;
-            repository = new CidadeRepository(bd);
+            repository = new CidadeRepository();
         }
 
         public void Adicionar(Cidade cidade)
@@ -24,9 +22,9 @@ namespace CRUD.Aplicacao
             repository.Adicionar(cidade);
         }
 
-        public void Remover(Cidade cidade)
+        public void Remover(int id)
         {
-            repository.Remover(cidade);
+            repository.Remover(id);
         }
 
         public void Editar(int id, Cidade cidadeEdit)
