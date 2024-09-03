@@ -12,9 +12,9 @@ namespace CRUD.Aplicacao
     {
         public TimeRepository repository { get; set; }
 
-        public TimeService()
+        public TimeService(IConfiguration configuration)
         {
-            repository = new TimeRepository();
+            repository = new TimeRepository(configuration);
         }
 
         public void Adicionar(Time time)

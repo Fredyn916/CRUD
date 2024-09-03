@@ -12,9 +12,9 @@ namespace CRUD.Aplicacao
     {
         public CidadeRepository repository { get; set; }
 
-        public CidadeService()
+        public CidadeService(IConfiguration configuration)
         {
-            repository = new CidadeRepository();
+            repository = new CidadeRepository(configuration);
         }
 
         public void Adicionar(Cidade cidade)
