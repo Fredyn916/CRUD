@@ -12,12 +12,16 @@ namespace CRUD.Repositorios
 {
     public class TimeRepository
     {
-        private const string ConnectionString = "Data Source=CRUD.db"; // ConnectionString (Parâmetros necessários para criar um banco de dados)
-        // Caso não exista o banco de dados, a var connection cria um database automaticamente
+        public readonly string _ConnectionString; // Variável da connection string a ser preenchida
+
+        public TimeRepository(IConfiguration configuration) // Bloco de código responsável por preencher a connectionString
+        {
+            _ConnectionString = configuration.GetConnectionString("DefaulConnection");
+        }
 
         public void Adicionar(Time time)
         {
-            using (var connection = new SQLiteConnection(ConnectionString)) // Criando a conexão
+            using (var connection = new SQLiteConnection(_ConnectionString)) // Criando a conexão
             {
                 connection.Open();
 
@@ -37,7 +41,7 @@ namespace CRUD.Repositorios
 
         public void Remover(int id)
         {
-            using (var connection = new SQLiteConnection(ConnectionString)) // Criando a conexão
+            using (var connection = new SQLiteConnection(_ConnectionString)) // Criando a conexão
             {
                 connection.Open();
 
@@ -55,7 +59,7 @@ namespace CRUD.Repositorios
 
         public void Editar(int id, Time editTime)
         {
-            using (var connection = new SQLiteConnection(ConnectionString)) // Criando a conexão
+            using (var connection = new SQLiteConnection(_ConnectionString)) // Criando a conexão
             {
                 connection.Open();
 
@@ -79,7 +83,7 @@ namespace CRUD.Repositorios
         {
             List<Time> listAux = new List<Time>();
 
-            using (var connection = new SQLiteConnection(ConnectionString)) // Criando a conexão
+            using (var connection = new SQLiteConnection(_ConnectionString)) // Criando a conexão
             {
                 connection.Open();
 
@@ -107,7 +111,7 @@ namespace CRUD.Repositorios
 
         public Time BuscarTimePorId(int id)
         {
-            using (var connection = new SQLiteConnection(ConnectionString)) // Criando a conexão
+            using (var connection = new SQLiteConnection(_ConnectionString)) // Criando a conexão
             {
                 connection.Open();
 
