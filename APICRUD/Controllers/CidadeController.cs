@@ -11,7 +11,7 @@ namespace APICRUD.Controllers
     {
         private CidadeService _service;
 
-        public CidadeController(SimuladorBD bdSistema)
+        public CidadeController()
         {
             _service = new CidadeService();
         }

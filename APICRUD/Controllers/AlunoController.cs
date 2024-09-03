@@ -11,7 +11,7 @@ namespace APICRUD.Controllers
     {
         private AlunoService _service;
 
-        public AlunoController(SimuladorBD bdSistema)
+        public AlunoController()
         {
             _service = new AlunoService();
         }
