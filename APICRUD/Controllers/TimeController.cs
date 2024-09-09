@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using CRUD.Aplicacao;
 using CRUD;
+using AutoMapper;
 
 namespace APICRUD.Controllers
 {
@@ -10,9 +11,12 @@ namespace APICRUD.Controllers
     public class TimeController : ControllerBase
     {
         private TimeService _service;
-        public TimeController(IConfiguration configuration)
+        private readonly IMapper _mapper;
+
+        public TimeController(IMapper mapper, IConfiguration configuration)
         {
             _service = new TimeService(configuration);
+            _mapper = mapper;
         }
 
         [HttpPost("AdicionarTime")] // Rota (EndPoint)

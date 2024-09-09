@@ -3,6 +3,7 @@ using CRUD;
 using Microsoft.AspNetCore.Mvc;
 using CRUD.Entidades;
 using APICRUD._01___Entidades.DTOs.Aluno;
+using AutoMapper;
 
 namespace APICRUD.Controllers
 {
@@ -11,19 +12,19 @@ namespace APICRUD.Controllers
     public class AlunoController : ControllerBase
     {
         private AlunoService _service;
+        private readonly IMapper _mapper;
 
-        public AlunoController(IConfiguration configuration)
+
+        public AlunoController(IMapper mapper, IConfiguration configuration)
         {
             _service = new AlunoService(configuration);
+            _mapper = mapper;
         }
 
         [HttpPost("AdicionarAluno")] // Rota (EndPoint)
         public void AdicionarAluno(CreateAlunoDTO aluno)
         {
-            Aluno a = new Aluno();
-            a.Nome = aluno.Nome;
-            a.Peso = aluno.Peso;
-            a.Idade = aluno.Idade;
+            Aluno a = _mapper.Map<Aluno>(aluno);
             _service.Adicionar(a);
         }
 

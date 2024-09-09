@@ -2,6 +2,7 @@
 using CRUD;
 using Microsoft.AspNetCore.Mvc;
 using CRUD.Entidades;
+using AutoMapper;
 
 namespace APICRUD.Controllers
 {
@@ -10,10 +11,12 @@ namespace APICRUD.Controllers
     public class CidadeController : ControllerBase
     {
         private CidadeService _service;
+        private readonly IMapper _mapper;
 
-        public CidadeController(IConfiguration configuration)
+        public CidadeController(IMapper mapper, IConfiguration configuration)
         {
             _service = new CidadeService(configuration);
+            _mapper = mapper;
         }
 
         [HttpPost("AdicionarCidade")] // Rota (EndPoint)
