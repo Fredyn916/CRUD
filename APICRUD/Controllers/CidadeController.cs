@@ -11,15 +11,18 @@ namespace APICRUD.Controllers
     {
         private CidadeService _service;
 
-        public CidadeController()
+        public CidadeController(IConfiguration configuration)
         {
-            _service = new CidadeService();
+            _service = new CidadeService(configuration);
         }
 
         [HttpPost("AdicionarCidade")] // Rota (EndPoint)
         public void AdicionarCidade(Cidade cidade)
         {
-            _service.Adicionar(cidade);
+            Cidade c = new Cidade();
+            c.Nome = cidade.Nome;
+            c.NumHabitantes = cidade.NumHabitantes;
+            _service.Adicionar(c);
         }
 
         [HttpGet("VisualizarCidade")] // Rota (EndPoint)

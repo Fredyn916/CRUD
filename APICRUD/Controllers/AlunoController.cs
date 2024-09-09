@@ -2,6 +2,7 @@
 using CRUD;
 using Microsoft.AspNetCore.Mvc;
 using CRUD.Entidades;
+using APICRUD._01___Entidades.DTOs.Aluno;
 
 namespace APICRUD.Controllers
 {
@@ -11,15 +12,19 @@ namespace APICRUD.Controllers
     {
         private AlunoService _service;
 
-        public AlunoController()
+        public AlunoController(IConfiguration configuration)
         {
-            _service = new AlunoService();
+            _service = new AlunoService(configuration);
         }
 
         [HttpPost("AdicionarAluno")] // Rota (EndPoint)
-        public void AdicionarAluno(Aluno aluno)
+        public void AdicionarAluno(CreateAlunoDTO aluno)
         {
-            _service.Adicionar(aluno);
+            Aluno a = new Aluno();
+            a.Nome = aluno.Nome;
+            a.Peso = aluno.Peso;
+            a.Idade = aluno.Idade;
+            _service.Adicionar(a);
         }
 
         [HttpGet("VisualizarAluno")] // Rota (EndPoint)

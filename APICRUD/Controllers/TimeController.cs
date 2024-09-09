@@ -10,14 +10,17 @@ namespace APICRUD.Controllers
     public class TimeController : ControllerBase
     {
         private TimeService _service;
-        public TimeController()
+        public TimeController(IConfiguration configuration)
         {
-            _service = new TimeService();
+            _service = new TimeService(configuration);
         }
 
         [HttpPost("AdicionarTime")] // Rota (EndPoint)
         public void AdicionarTime(Time time)
         {
+            Time t = new Time();
+            t.AnoCriacao = time.AnoCriacao;
+            t.Nome = time.Nome;
             _service.Adicionar(time);
         }
 
